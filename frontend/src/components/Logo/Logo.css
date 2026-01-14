@@ -1,0 +1,25 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo__icon img {
+  display: block;
+}
+
+.logo__text {
+  font-size: 24px;
+  font-weight: 700;
+  color: inherit;
+  margin: 0;
+  white-space: nowrap;
+}
+
