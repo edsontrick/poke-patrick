@@ -1,38 +1,38 @@
 # Pokédex App - Patrick's Project
 
-Uma aplicação web full-stack para explorar e visualizar informações sobre Pokémon, desenvolvida com Ruby on Rails no backend e React + TypeScript no frontend.
+A full-stack web application for exploring and viewing Pokémon information, developed with Ruby on Rails on the backend and React + TypeScript on the frontend.
 
-## 📋 Visão Geral
+## 📋 Overview
 
-Este projeto implementa uma Pokédex interativa que permite aos usuários:
-- Autenticar-se na aplicação
-- Visualizar uma lista de Pokémon (151 primeiros)
-- Buscar Pokémon por nome
-- Ordenar Pokémon por número ou nome
-- Visualizar detalhes completos de cada Pokémon
-- Ver estatísticas, tipos e informações de espécie
+This project implements an interactive Pokédex that allows users to:
+- Authenticate in the application
+- View a list of Pokémon (first 151)
+- Search Pokémon by name
+- Sort Pokémon by number or name
+- View complete details of each Pokémon
+- See statistics, types, and species information
 
-## 🏗️ Arquitetura
+## 🏗️ Architecture
 
 ### Backend (Ruby on Rails)
 - **Framework**: Ruby on Rails 7.1.6
 - **API**: RESTful JSON API
-- **Autenticação**: Token-based authentication (Base64)
-- **Serviço Externo**: Integração com [PokeAPI](https://pokeapi.co/)
-- **CORS**: Configurado para comunicação com frontend
+- **Authentication**: Token-based authentication (Base64)
+- **External Service**: Integration with [PokeAPI](https://pokeapi.co/)
+- **CORS**: Configured for frontend communication
 
 ### Frontend (React + TypeScript)
-- **Framework**: React 19.2.0 com TypeScript
+- **Framework**: React 19.2.0 with TypeScript
 - **Build Tool**: Vite
-- **Roteamento**: React Router DOM
-- **Gerenciamento de Estado**: React Hooks (useState, useEffect)
-- **Estilização**: CSS Modules
+- **Routing**: React Router DOM
+- **State Management**: React Hooks (useState, useEffect)
+- **Styling**: CSS Modules
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```
 poke-patrick/
-├── backend/          # API Rails
+├── backend/          # Rails API
 │   ├── app/
 │   │   ├── controllers/
 │   │   │   ├── authentication_controller.rb
@@ -53,13 +53,13 @@ poke-patrick/
     └── public/
 ```
 
-## 🚀 Como Executar
+## 🚀 How to Run
 
-### Pré-requisitos
+### Prerequisites
 - Ruby 3.3.2
 - Node.js 18+
 - Bundler
-- npm ou yarn
+- npm or yarn
 
 ### Backend
 
@@ -69,7 +69,7 @@ bundle install
 rails server
 ```
 
-O servidor estará disponível em `http://localhost:3000`
+The server will be available at `http://localhost:3000`
 
 ### Frontend
 
@@ -79,25 +79,25 @@ npm install
 npm run dev
 ```
 
-A aplicação estará disponível em `http://localhost:5173`
+The application will be available at `http://localhost:5173`
 
-## 🔐 Autenticação
+## 🔐 Authentication
 
 ### Login
 - **Endpoint**: `POST /login`
-- **Credenciais**:
+- **Credentials**:
   - Username: `admin`
   - Password: `admin`
-- **Resposta**: Token JWT (Base64) armazenado no localStorage
+- **Response**: JWT Token (Base64) stored in localStorage
 
-### Proteção de Rotas
-- Rotas protegidas requerem token no header `Authorization: Bearer <token>`
-- Token expira após 24 horas (configurável)
+### Route Protection
+- Protected routes require token in `Authorization: Bearer <token>` header
+- Token expires after 24 hours (configurable)
 
-## 📡 Endpoints da API
+## 📡 API Endpoints
 
 ### `POST /login`
-Autentica o usuário e retorna token de acesso.
+Authenticates the user and returns an access token.
 
 **Request:**
 ```json
@@ -116,11 +116,11 @@ Autentica o usuário e retorna token de acesso.
 ```
 
 ### `GET /pokemons`
-Lista todos os Pokémon com paginação.
+Lists all Pokémon with pagination.
 
 **Query Parameters:**
-- `limit` (opcional): Número de resultados por página (padrão: 151)
-- `offset` (opcional): Número de resultados a pular (padrão: 0)
+- `limit` (optional): Number of results per page (default: 151)
+- `offset` (optional): Number of results to skip (default: 0)
 
 **Headers:**
 ```
@@ -138,7 +138,7 @@ Authorization: Bearer <token>
 ```
 
 ### `GET /pokemons/:id`
-Retorna informações detalhadas de um Pokémon específico.
+Returns detailed information of a specific Pokémon.
 
 **Headers:**
 ```
@@ -153,14 +153,14 @@ Authorization: Bearer <token>
 }
 ```
 
-## 🧪 Testes
+## 🧪 Testing
 
 ### Backend
 ```bash
 cd backend
-bundle exec rspec  # Se usar RSpec
-# ou
-rails test         # Se usar Minitest
+bundle exec rspec  # If using RSpec
+# or
+rails test         # If using Minitest
 ```
 
 ### Frontend
@@ -169,21 +169,21 @@ cd frontend
 npm test
 ```
 
-## 🎨 Design e UX
+## 🎨 Design and UX
 
-- **Design Responsivo**: Adaptável a diferentes tamanhos de tela
-- **Loading States**: Feedback visual durante carregamento
-- **Error Handling**: Mensagens de erro amigáveis
-- **Acessibilidade**: Suporte a ARIA labels e navegação por teclado
+- **Responsive Design**: Adaptable to different screen sizes
+- **Loading States**: Visual feedback during loading
+- **Error Handling**: User-friendly error messages
+- **Accessibility**: Support for ARIA labels and keyboard navigation
 
-## 🔧 Tecnologias Principais
+## 🔧 Main Technologies
 
 ### Backend
 - Ruby on Rails 7.1.6
-- Puma (servidor web)
+- Puma (web server)
 - rack-cors (CORS)
-- SQLite3 (banco de dados)
-- Net::HTTP (client HTTP)
+- SQLite3 (database)
+- Net::HTTP (HTTP client)
 
 ### Frontend
 - React 19.2.0
@@ -192,40 +192,40 @@ npm test
 - React Router DOM 6.30.3
 - ESLint
 
-## 📝 Decisões de Arquitetura
+## 📝 Architecture Decisions
 
-### Separação de Concerns
-- **Controllers**: Responsáveis apenas por receber requests e retornar responses
-- **Services**: Lógica de negócio e integrações externas (PokeApiService)
-- **Concerns**: Código reutilizável (Authenticable)
+### Separation of Concerns
+- **Controllers**: Responsible only for receiving requests and returning responses
+- **Services**: Business logic and external integrations (PokeApiService)
+- **Concerns**: Reusable code (Authenticable)
 
 ### Frontend
-- **Components**: Componentes reutilizáveis e bem organizados
-- **Hooks**: Lógica reutilizável (usePokemon, usePokemonList)
-- **Services**: Comunicação com APIs
-- **Types**: Definições TypeScript para type safety
+- **Components**: Reusable and well-organized components
+- **Hooks**: Reusable logic (usePokemon, usePokemonList)
+- **Services**: API communication
+- **Types**: TypeScript definitions for type safety
 
-### Segurança
+### Security
 - Token-based authentication
-- CORS configurado
-- Strong parameters no Rails
-- Validação de entrada
+- CORS configured
+- Strong parameters in Rails
+- Input validation
 
-## 🚧 Melhorias Futuras
+## 🚧 Future Improvements
 
-- [ ] Implementar testes unitários e de integração
-- [ ] Adicionar cache para requisições à PokeAPI
-- [ ] Implementar paginação no frontend
-- [ ] Adicionar favoritos de Pokémon
-- [ ] Melhorar tratamento de erros
-- [ ] Implementar JWT real ao invés de Base64
-- [ ] Adicionar rate limiting
-- [ ] Implementar internacionalização (i18n)
+- [ ] Implement unit and integration tests
+- [ ] Add cache for PokeAPI requests
+- [ ] Implement frontend pagination
+- [ ] Add Pokémon favorites
+- [ ] Improve error handling
+- [ ] Implement real JWT instead of Base64
+- [ ] Add rate limiting
+- [ ] Implement internationalization (i18n)
 
-## 📄 Licença
+## 📄 License
 
-Este projeto foi desenvolvido como parte de um processo seletivo técnico.
+This project was developed as part of a technical selection process.
 
-## 👤 Autor
+## 👤 Author
 
 Patrick
